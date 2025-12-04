@@ -16,6 +16,11 @@
 - **DevOps:** Jenkins, Shell Script, Crontab
 
 ### Troubleshooting
+- **CI/CD 파이프라인 고도화 및 빌드 시스템 이관**
+  - **Problem:** GitHub Actions(Cloud)의 메모리 자원 부족으로 인한 프론트엔드 빌드 실패(OOM) 및 중단 발생
+  - **Action:** Self-hosted 방식의 유지보수(IaC 관리) 비용 절감을 위해, Web UI 기반 관리가 용이한 Jenkins로 시스템 이관
+  - **Result:** 고사양 빌드 환경 구축으로 빌드 안정성 100% 확보 및 파이프라인 운영 효율 증대
+    
 - **캐시 전략 최적화 (Redis vs Caffeine)**
   - **Problem:** 복잡한 집계 쿼리로 대시보드 로딩 **3초 지연**, DB 부하 심화
   - **Action:** 데이터 갱신 주기(1h) 분석 후, 오버헤드가 큰 Redis 대신 **Caffeine(JVM Local Cache)** 도입
@@ -46,7 +51,12 @@
 - **SaaS:** Asana, Workato
 
 ### Troubleshooting 
-- **멀티스레드 환경 로그 가시성(Observability) 확보**
+- **멀티스레드 도입을 통한 대용량 처리 성능 향상**
+  - **Problem:** 단일 스레드(Single-thread) 순차 처리 방식으로 인한 작업 병목 및 소요 시간 과다
+  - **Action:** 데이터 정합성(Consistency)이 보장되는 병렬 처리 구간을 식별하여 멀티스레드 로직 적용
+  - **Result:** 전체 작업 시간 **60% 단축** 및 **프로세스 처리 효율 극대화**
+  
+- **멀티스레드 환경 로그 가시성(Observability) 확보**  
   - **Problem:** 동시성 요청이 많아 로그가 뒤섞여 특정 에러의 트래킹이 불가능
   - **Action:** 스레드별 고유 ID와 실행 맥락(Context)을 로그에 남기도록 아키텍처 개선
   - **Result:** 이슈 원인 파악 시간 **50% 단축** 및 디버깅 효율 증대
