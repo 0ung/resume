@@ -43,7 +43,7 @@
 - **Infrastructure:** Linux(redhat)
 - **Database:** postgresql
 - **DevOps:** Jenkins, Shell Script
-- **SaaS:** ASANA, WORKATO
+- **SaaS:** Asana, Workato
 
 ### Troubleshooting 
 - **멀티스레드 환경 로그 가시성(Observability) 확보**
